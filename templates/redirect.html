@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecionando</title>
+    <script type="text/javascript">
+        function redirectTo(url, delay) {
+            setTimeout(function() {
+                window.location.href = url;
+            }, delay * 1000);
+        }
+    </script>
+</head>
+<body onload="redirectTo('{{ login }}', {{ 5 }} )">
+    <h1>{{ get_flashed_messages()[0] }}</h1>
+    <p>Você será redirecionado em {{ delay }} segundos.</p>
+</body>
+</html>

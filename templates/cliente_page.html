@@ -2,7 +2,8 @@
 {% block body %}
 <div class="row">
 <h3 class='text-center text-muted mb-3'></h3>
-<p class="text-right"><a href="{{url_for('add_user')}}" class="btn btn-success">+Novo Cadastro</a></p>
+<p></p>
+<h3 style="color: white;">Visualize os casos</h3><hr>
 <table class="table table-bordered" style="background-color: rgb(0, 0, 0);">
   <thead>
     <tr>
@@ -26,9 +27,7 @@
       <td style="color: white;">{{row.NUMERO}}</td>
       <td style="color: white;">{{row.ESTADO}}</td>
       <td style="color: white;">{{row.EMAIL}}</td>
-        <td><a href="{{url_for('edit_user',id=row.ID)}}" class="btn btn-primary">Editar</a></td>
-        <td><a href="{{url_for('delete_user',id=row.ID)}}" class="btn btn-danger" onclick="return confirm ('Tem certeza que deseja apagar?')">Deletar</a></td>
-      </tr>
+        </tr>
       {% endfor %}
     </tbody>
   </table>
