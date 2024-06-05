@@ -1,0 +1,49 @@
+body {
+    background-image: url("bg.jpg");
+    background-repeat: repeat
+    background-size: cover;
+    background-position: center center;
+    height: 92vh:
+}
+
+.container{
+    padding: auto;;
+    align-content: center;
+    position: center;
+    margin-top: 200;
+    padding-top: 100px;
+    
+}
+.red{
+    color: red;
+}
+#myFooter {
+    
+    align-content: center;
+    padding-top: 11%;
+}
+
+#myFooter .footer-copyright {
+    background-color: 
+    #4a35aa;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    text-align: center;
+}
+
+#myFooter .row {
+    margin-bottom: 30px;
+}
+
+#myFooter .navbar-brand {
+    margin-top: 35px;
+    height: 65px;
+}
+
+#myFooter .footer-copyright p {
+    margin: 10px;
+    color: #ccc;
+}
+
+
+
