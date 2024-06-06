@@ -1,36 +1,137 @@
-{% extends 'layout.html' %}
+{% extends 'clayout.html' %}
 {% block body %}
 <div class="row">
-<h3 class='text-center text-muted mb-3'></h3>
-<p></p>
-<h3 style="color: white;">Visualize os casos</h3><hr>
-<table class="table table-bordered" style="background-color: rgb(0, 0, 0);">
-  <thead>
-    <tr>
-      <th scope="col" style="color: white;"">ID</th>
-      <th scope="col" style="color: white;"">Nome</th>
-      <th scope="col" style="color: white;"">Idade</th>
-      <th scope="col" style="color: white;"">Rua</th>
-      <th scope="col" style="color: white;"">Cidade</th>
-      <th scope="col" style="color: white;"">Número</th>
-      <th scope="col" style="color: white;"">Estado</th>
-      <th scope="col" style="color: white;"">E-mail</th>
-    </tr>
-  <tbody>
+  <h2 class='text-center text-muted mb-3' style="color: white;">VISUALIZE OS CASOS</h2>
+  <table class="table table-bordered" style="background-color: rgb(20, 104, 201);">
+    <thead>
+      <tr>
+        <th scope="col" style="color: white;">ID</th>
+        <th scope="col" style="color: white;">Nome</th>
+        <th scope="col" style="color: white;">Idade</th>
+        <th scope="col" style="color: white;">Rua</th>
+        <th scope="col" style="color: white;">Cidade</th>
+        <th scope="col" style="color: white;">Número</th>
+        <th scope="col" style="color: white;">Estado</th>
+        <th scope="col" style="color: white;">E-mail</th>
+        <th scope="col" style="color: white;">Ações</th>
+        <th scope="col" style="color: white;">Detalhes</th>
+      </tr>
+    </thead>
+    <tbody>
       {% for row in datas %}
-    <tr>
-      <td style="color: white;">{{loop.index}}</td>
-      <td style="color: white;">{{row.NOME}}</td>
-      <td style="color: white;">{{row.IDADE}}</td>
-      <td style="color: white;">{{row.RUA}}</td>
-      <td style="color: white;">{{row.CIDADE}}</td>
-      <td style="color: white;">{{row.NUMERO}}</td>
-      <td style="color: white;">{{row.ESTADO}}</td>
-      <td style="color: white;">{{row.EMAIL}}</td>
-        </tr>
+      <tr>
+        <td style="color: white;">{{loop.index}}</td>
+        <td style="color: white;">{{row.NOME}}</td>
+        <td style="color: white;">{{row.IDADE}}</td>
+        <td style="color: white;">{{row.RUA}}</td>
+        <td style="color: white;">{{row.CIDADE}}</td>
+        <td style="color: white;">{{row.NUMERO}}</td>
+        <td style="color: white;">{{row.ESTADO}}</td>
+        <td style="color: white;">{{row.EMAIL}}</td>
+        <td><button class="btn btn-info" onclick="toggleDetails('details-{{loop.index}}')">Expandir</button></td>
+      
+      <tr id="details-{{loop.index}}" class="collapse">
+        <td colspan="10">
+          <div>
+          
+            <table class="table table-bordered" style="background-color: rgb(20, 104, 201);">
+              <thead>
+                <tr>
+                  <th scope="col" style="color: white;">Cliente</th>
+                  <th scope="col" style="color: white;">Tipo de Caso</th>
+                  <th scope="col" style="color: white;">Datas Importantes</th>
+                  <th scope="col" style="color: white;">Detalhes do Litígio</th>
+                  <th scope="col" style="color: white;">Partes Envolvidas</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for caso in casos if caso.CLIENTE_ID == row.ID %}
+                <tr>
+                  <td style="color: white;">{{caso.CLIENTE}}</td>
+                  <td style="color: white;">{{caso.TIPO}}</td>
+                  <td style="color: white;">{{caso.DATAS}}</td>
+                  <td style="color: white;">{{caso.DETALHES}}</td>
+                  <td style="color: white;">{{caso.PARTES}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            
+            <h5>Atividades e Tarefas</h5>
+            <table class="table table-bordered" style="background-color: rgb(20, 104, 201);">
+              <thead>
+                <tr>
+                  <th scope="col" style="color: white;">Descrição</th>
+                  <th scope="col" style="color: white;">Data</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for atividade in atividades if atividade.CLIENTE_ID == row.ID %}
+                <tr>
+                  <td style="color: white;">{{atividade.DESCRICAO}}</td>
+                  <td style="color: white;">{{atividade.DATA}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            
+            <h5>Documentação de Despesas</h5>
+            <table class="table table-bordered" style="background-color: rgb(20, 104, 201);">
+              <thead>
+                <tr>
+                  <th scope="col" style="color: white;">Tipo</th>
+                  <th scope="col" style="color: white;">Descrição</th>
+                  <th scope="col" style="color: white;">Valor</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for despesa in despesas if despesa.CLIENTE_ID == row.ID %}
+                <tr>
+                  <td style="color: white;">{{despesa.TIPO}}</td>
+                  <td style="color: white;">{{despesa.DESCRICAO}}</td>
+                  <td style="color: white;">{{despesa.VALOR}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            
+            <h5>Avaliação de Caso</h5>
+            <table class="table table-bordered" style="background-color: rgb(20, 104, 201);">
+              <thead>
+                <tr>
+                  <th scope="col" style="color: white;">Descrição</th>
+                  <th scope="col" style="color: white;">Data</th>
+                  <th scope="col" style="color: white;">Status</th>
+                  <th scope="col" style="color: white;">Próximos Passos</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for avaliacao in avaliacoes if avaliacao.CLIENTE_ID == row.ID %}
+                <tr>
+                  <td style="color: white;">{{avaliacao.DESCRICAO}}</td>
+                  <td style="color: white;">{{avaliacao.DATA}}</td>
+                  <td style="color: white;">{{avaliacao.STATUS}}</td>
+                  <td style="color: white;">{{avaliacao.PASSOS}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </td>
+      </tr>
       {% endfor %}
     </tbody>
   </table>
 </div>
 
+<script>
+  function toggleDetails(id) {
+    var element = document.getElementById(id);
+    if (element.classList.contains('collapse')) {
+      element.classList.remove('collapse');
+    } else {
+      element.classList.add('collapse');
+    }
+  }
+</script>
 {% endblock %}

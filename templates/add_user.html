@@ -10,8 +10,9 @@
 </style>
 <div class="row">
     <div class="col-5 mx-auto custom-form">
-        <h3>CADASTRE</h3><hr>
+        <h2 style="color: white;">CADASTRE</h2><hr>
         <form method="post" action="{{url_for('add_user')}}">
+            <!-- Informações do Cliente -->
             <div class="form-group">
                 <label>Nome</label>
                 <input type="text" name="nome" required class="form-control">
@@ -40,11 +41,101 @@
                 <label>E-mail</label>
                 <input type="text" name="email" required class="form-control">
             </div>
-        </br>
+            
+            <!-- Cadastro do Caso -->
+            <h3 style="color: white;">Cadastro do Caso</h3>
+            <div class="form-group">
+                <label>Cliente</label>
+                <input type="text" name="caso_cliente" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Tipo de Caso</label>
+                <input type="text" name="caso_tipo" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Datas Importantes</label>
+                <input type="text" name="caso_datas" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Detalhes do Litígio</label>
+                <input type="text" name="caso_detalhes" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Partes Envolvidas</label>
+                <input type="text" name="caso_partes" required class="form-control">
+            </div>
+
+            <!-- Atividades e Tarefas -->
+            <h3 style="color: white;">Atividades e Tarefas</h3>
+            <div class="form-group">
+                <label>Descrição</label>
+                <input type="text" name="atividade_descricao" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Data</label>
+                <input type="date" name="atividade_data" required class="form-control">
+            </div>
+
+            <!-- Documentação de Despesas -->
+            <h3 style="color: white;">Documentação de Despesas</h3>
+            <div class="form-group">
+                <label>Tipo</label>
+                <input type="text" name="despesa_tipo" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Descrição</label>
+                <input type="text" name="despesa_descricao" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Valor</label>
+                <input type="number" name="despesa_valor" required class="form-control">
+            </div>
+
+            <!-- Avaliação de Caso -->
+            <h3 style="color: white;">Avaliação do Caso</h3>
+            <div class="form-group">
+                <label>Descrição</label>
+                <input type="text" name="avaliacao_descricao" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Data</label>
+                <input type="date" name="avaliacao_data" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Status</label>
+                <input type="text" name="avaliacao_status" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Próximos Passos</label>
+                <input type="text" name="avaliacao_passos" required class="form-control">
+            </div>
+
+            <br>
             <input type="submit" value="Adicionar" class="btn btn-primary">
         </form>
     </div>
-        
+</div>
+                
+                 
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            
+            </tbody>
+        </table>
+    </div>
 </div>
 
+<script>
+  function toggleDetails(id) {
+    var element = document.getElementById(id);
+    if (element.classList.contains('collapse')) {
+      element.classList.remove('collapse');
+    } else {
+      element.classList.add('collapse');
+    }
+  }
+</script>
 {% endblock %}

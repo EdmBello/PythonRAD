@@ -3,35 +3,107 @@
 <div class="row">
     <div class="col-5 mx-auto">
         <h3>Edite</h3><hr>
-        <form method="post" action="{{url_for('edit_user',id=datas.ID)}}">
-            <div class="form group">
+        <form method="post" action="{{ url_for('edit_user', id=user_data.ID) }}">
+            <!-- Informações do Cliente -->
+            <div class="form-group">
                 <label>Nome</label>
                 <input type="text" name="nome" required class="form-control" value="{{datas.NOME}}">
             </div>
-            <div class="form group">
+            <div class="form-group">
                 <label>Idade</label>
                 <input type="text" name="idade" required class="form-control" value="{{datas.IDADE}}">
             </div>
-            <div class="form group">
+            <div class="form-group">
                 <label>Rua</label>
                 <input type="text" name="rua" required class="form-control" value="{{datas.RUA}}">
             </div>
-            <div class="form group">
+            <div class="form-group">
                 <label>Cidade</label>
                 <input type="text" name="cidade" required class="form-control" value="{{datas.CIDADE}}">
             </div>
-            <div class="form group">
+            <div class="form-group">
                 <label>Número</label>
                 <input type="text" name="numero" required class="form-control" value="{{datas.NUMERO}}">
             </div>
-            <div class="form group">
+            <div class="form-group">
                 <label>Estado</label>
                 <input type="text" name="estado" required class="form-control" value="{{datas.ESTADO}}">
             </div>
-            <div class="form group">
+            <div class="form-group">
                 <label>E-mail</label>
                 <input type="text" name="email" required class="form-control" value="{{datas.EMAIL}}">
             </div>
+            
+            <!-- Cadastro do Caso -->
+            <h5>Cadastro do Caso</h5>
+            <div class="form-group">
+                <label>Cliente</label>
+                <input type="text" name="caso_cliente" required class="form-control" value="{{casos.CLIENTE}}">
+            </div>
+            <div class="form-group">
+                <label>Tipo de Caso</label>
+                <input type="text" name="caso_tipo" required class="form-control" value="{{casos.TIPO}}">
+            </div>
+            <div class="form-group">
+                <label>Datas Importantes</label>
+                <input type="text" name="caso_datas" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Detalhes do Litígio</label>
+                <input type="text" name="caso_detalhes" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Partes Envolvidas</label>
+                <input type="text" name="caso_partes" required class="form-control">
+            </div>
+
+            <!-- Atividades e Tarefas -->
+            <h5>Atividades e Tarefas</h5>
+            <div class="form-group">
+                <label>Descrição</label>
+                <input type="text" name="atividade_descricao" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Data</label>
+                <input type="date" name="atividade_data" required class="form-control">
+            </div>
+
+            <!-- Documentação de Despesas -->
+            <h5>Documentação de Despesas</h5>
+            <div class="form-group">
+                <label>Tipo</label>
+                <input type="text" name="despesa_tipo" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Descrição</label>
+                <input type="text" name="despesa_descricao" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Valor</label>
+                <input type="number" name="despesa_valor" required class="form-control">
+            </div>
+
+            <!-- Avaliação de Caso -->
+            <h5>Avaliação de Caso</h5>
+            <div class="form-group">
+                <label>Descrição</label>
+                <input type="text" name="avaliacao_descricao" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Data</label>
+                <input type="date" name="avaliacao_data" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Status</label>
+                <input type="text" name="avaliacao_status" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Próximos Passos</label>
+                <input type="text" name="avaliacao_passos" required class="form-control">
+            </div>
+            
+            <br>
+
             <input type="submit" value="Confirmar" class="btn btn-primary">
         </form>
     </div>

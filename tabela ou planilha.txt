@@ -1,0 +1,8 @@
+Clientes: nome, endereço, número de telefone, e detalhes sobre o caso legal em questão.
+Cadastro do caso: informações sobre o cliente envolvido, o tipo de caso, datas importantes, detalhes do litígio, partes envolvidas, entre outros.
+
+Ativiidades e tarefas:  como reuniões com clientes, pesquisas legais, preparação de documentos legais, comparecimento a audiências, entre outros.
+
+Documentação de Despesas:honorários advocatícios, custos judiciais, custos de cópias de documentos, despesas de viagem, e outras despesas relacionadas ao caso.
+
+avaliação de caso: avaliar e revisar o progresso de um caso, identificar questões pendentes, definir próximos passos, atribuir responsabilidades, e fazer anotações sobre o status atual do caso e as próximas etapas a serem tomadas.
